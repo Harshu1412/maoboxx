@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import Mapbox from "@rnmapbox/maps";
+import NavigationScreen from "./NavigationScreen";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+Mapbox.setAccessToken(
+  "pk.eyJ1IjoiaGFyc2h1MTQxMiIsImEiOiJjbGdtMWN1MHMwMWMxM3FwcGZ3a3p2ajliIn0.sAqxecqbNtP8fVkl_9m9xQ"
+);
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
+
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationScreen/>)
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 });

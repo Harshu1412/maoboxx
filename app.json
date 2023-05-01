@@ -21,10 +21,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.yashukhera5.mapboxx"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "@rnmapbox/maps",
+        {
+          "RNMapboxMapsImpl": "mapbox",
+          "RNMapboxMapsDownloadToken": "sk.eyJ1IjoiaGFyc2h1MTQxMiIsImEiOiJjbGdvbzE2NzQwN2J4M2ZtbTF3N3MyNXQ2In0.gvc484rPo9-PGlJR9dZbNQ"
+        }
+      ]
+    ]
   }
 }
