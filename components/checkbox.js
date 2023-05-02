@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity,StyleSheet } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from '@expo/vector-icons';
 
-const CustomCheckbox1 = ({ item, isChecked, onToggle }) => {
+const CustomCheckbox = ({ item, isChecked, onToggle }) => {
   return (
     <TouchableOpacity style={{position:"absolute",right:20}} onPress={() => onToggle(item)}>
       <View style={[styles.checkbox, isChecked ? styles.checkboxChecked : null]}>
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   });
   
 
-export default CustomCheckbox1;
+export default CustomCheckbox;

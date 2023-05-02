@@ -166,7 +166,7 @@ const OrderDetails = () => {
      
       </View>
       <View style={{position:"absolute",bottom:20}}>
-      <Buttons Name={"Payment"} />
+ <Buttons Name={"Payment"} press={"Pay"} />
       </View>
     </View>
   );

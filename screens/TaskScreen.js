@@ -5,43 +5,51 @@ import {
   TouchableOpacity,
   FlatList,
   Image,
+  ScrollView,Keyboard
 } from "react-native";
 import React, { useState } from "react";
-import {TextInput,DefaultTheme} from "react-native-paper";
+import { TextInput, DefaultTheme } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 import Titlebar from "../components/TitleBar";
 import Buttons from "../components/Buttons";
 import { Entypo } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
-import CustomCheckbox1 from "../checkbox2";
+import CustomCheckbox from "../components/checkbox";
 
 const TaskScreen = ({ navigation }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [checkedItems, setCheckedItems] = useState([]);
 
-
   const colorList = [
     { id: 1, name: "Food", uri: require("../assets/food.png") },
     { id: 2, name: "Medicines", uri: require("../assets/medicines.png") },
     { id: 3, name: "Clothes", uri: require("../assets/clothes.png") },
-    { id: 4,name: "Documents or Books",uri: require("../assets/documents.png"), },
+    {
+      id: 4,
+      name: "Documents or Books",
+      uri: require("../assets/documents.png"),
+    },
     { id: 5, name: "Electronics", uri: require("../assets/Electronics.png") },
     { id: 6, name: "Items for Repair", uri: require("../assets/Repair.png") },
-    { id: 7,name: "Business Deliceries",uri: require("../assets/Business.png"), },
+    {
+      id: 7,
+      name: "Business Deliceries",
+      uri: require("../assets/Business.png"),
+    },
     { id: 8, name: "Others", uri: require("../assets/others.png") },
   ];
 
   const handleFocus = () => {
     setIsFocused(true);
-  
+    
   };
   const handleBlur = () => {
     setIsFocused(false);
   };
   const handleFocus1 = () => {
     setIsFocused(true);
-    navigation.navigate("Map");
+    // navigation.navigate("Map");
   };
   const handleBlur1 = () => {
     setIsFocused(false);
@@ -49,25 +57,24 @@ const TaskScreen = ({ navigation }) => {
 
   const handleModal = () => {
     setModalVisible(!modalVisible);
-    console.log("HArshuu");
+    
   };
-
 
   return (
     <View
       style={{
-        backgroundColor: "white",     
+        backgroundColor: "white",
         alignItems: "center",
         flex: 1,
       }}
     >
       <Titlebar title={"Task"} />
-      <View style={{}}>
+      <View style={{ width:"92%"}}>
         <TextInput
           label="Pickup from"
           mode="outlined"
           width={285}
-          onFocus={() => navigation.navigate("Autocomplete")}
+          // onFocus={() => navigation.navigate("Autocomplete")}
           onBlur={handleBlur}
           right={
             <TextInput.Icon
@@ -87,11 +94,10 @@ const TaskScreen = ({ navigation }) => {
           }}
         />
       </View>
-      <View style={{ marginTop: 15 }}>
+      <View style={{ marginTop: 15,width:"92%" }}>
         <TextInput
           label="Deliver to"
           mode="outlined"
-          width={285}
           onFocus={handleFocus1}
           onBlur={handleBlur1}
           right={
@@ -115,14 +121,14 @@ const TaskScreen = ({ navigation }) => {
           }}
         />
       </View>
-     
-
-      <View style={{ marginTop: 15 }}>
+      
+      <View style={{ marginTop: 15,width:"92%" }}>
+      <ScrollView > 
         <TextInput
-         editable={false}
+          // editable={false}
+          onPress={Keyboard.dismiss} 
           label="Add task details"
           mode="outlined"
-          width={285}
           onFocus={handleFocus}
           onBlur={handleBlur}
           value={checkedItems.join(", ")}
@@ -150,7 +156,11 @@ const TaskScreen = ({ navigation }) => {
             color: "black",
           }}
         />
+    
+    </ScrollView>
+
       </View>
+      
       {modalVisible && (
         <View
           style={{
@@ -171,8 +181,9 @@ const TaskScreen = ({ navigation }) => {
             shadowOpacity: 0.25,
             shadowRadius: 3.84,
             elevation: 5,
-          }}       >
-          <FlatList
+          }}
+        >
+           <FlatList
             data={colorList}
             keyExtractor={(item) => item.name.toString()}
             renderItem={({ item }) => (
@@ -188,35 +199,33 @@ const TaskScreen = ({ navigation }) => {
                   source={item.uri}
                 />
                 <Text style={{}}>{item.name}</Text>
-
-                <CustomCheckbox1
-    item={item}
-    isChecked={checkedItems.includes(item.name)}
-    onToggle={(item) => {
-      if (checkedItems.includes(item.name)) {
-        setCheckedItems(checkedItems.filter((name) => name !== item.name));
-      } else {
-        setCheckedItems([...checkedItems, item.name]);
-      }
-    }}
-  />
-               
-              
+                <CustomCheckbox
+                  item={item}
+                  isChecked={checkedItems.includes(item.name)}
+                  onToggle={(item) => {
+                    if (checkedItems.includes(item.name)) {
+                      setCheckedItems(
+                        checkedItems.filter((name) => name !== item.name)
+                      );
+                    } else {
+                      setCheckedItems([...checkedItems, item.name]);
+                    }
+                  }}
+                />
               </TouchableOpacity>
             )}
           />
         </View>
       )}
       {!modalVisible && (
-        <View style={{ position: "absolute", top: 287, marginTop: 15 }}>
+        <View style={{ position: "absolute", top: 287, marginTop: 15,width:"92%" }}>
           <TextInput
-           
             label="Instructions"
-            mode="outlined"
-            width={340}
+            mode="outlined"         
             onFocus={handleFocus}
             onBlur={handleBlur}
             multiline={true}
+
             theme={{
               ...DefaultTheme,
               roundness: 10,
@@ -224,6 +233,8 @@ const TaskScreen = ({ navigation }) => {
               colors: { primary: "#0C8A7B", background: "black" },
             }}
             style={{
+              // add padding from top
+              textAlignVertical: 'center',
               height: 150,
               backgroundColor: "white",
               borderColor: isFocused ? "#0C8A7B" : "#808080",
@@ -232,7 +243,6 @@ const TaskScreen = ({ navigation }) => {
           />
         </View>
       )}
-     {/* <CustomCheckbox/> */}
       <View style={{ marginTop: 380, bottom: 10 }}>
         <Buttons Name={"Submit"} press={"OrderDetails"} />
       </View>
@@ -250,12 +260,12 @@ const styles = StyleSheet.create({
     height: 22,
     borderRadius: 4,
     borderWidth: 2,
-    borderColor: 'black',
-    justifyContent:"center",
-    alignItems:"center"
+    borderColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
   },
   checkboxChecked: {
-    backgroundColor: 'white',
-    borderColor: 'orange',
+    backgroundColor: "white",
+    borderColor: "orange",
   },
 });
