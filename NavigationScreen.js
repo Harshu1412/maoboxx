@@ -9,6 +9,9 @@ import AutoComplete from "./screens/AutoComplete";
 
 import OrderDetails from "./screens/OrderDetails";
 import ItemSelectionPage from "./screens/PayTo";
+import TaskScreen1 from "./screens/taskScreen1";
+import MapboxPlacesInput from "./mapbox";
+import { Custombox } from "./screens/custombox";
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +47,11 @@ const NavigationScreen = () => {
         <Stack.Screen
           name="Autocomplete"
           component={AutoComplete}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Custombox"
+          component={Custombox}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

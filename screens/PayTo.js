@@ -362,12 +362,16 @@ const ItemSelectionPage = () => {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <NewCard />
+           
             <CustomOutlinedTextInput
               label={"Card Number"}
               onChangeText={formatCardNumber}
               value={number}
               maxLen={19}
-              width={330}
+              width={300}
+              style={{
+               
+              }}
               keyboard={"numeric"}
             />
             {numberError ? (
@@ -380,7 +384,7 @@ const ItemSelectionPage = () => {
                 setNewItemName(text);
               }}
               value={newItemName}
-              width={330}
+              width={300}
               keyboard={"default"}
             />
             {nameError ? <Text style={{ color: "red" }}>Empty !!</Text> : null}
@@ -399,7 +403,7 @@ const ItemSelectionPage = () => {
                     setCvvError("");
                   }}
                   value={cvv}
-                  width={150}
+                  width={140}
                   maxLen={3}
                   keyboard={"numeric"}
                 />
@@ -412,7 +416,7 @@ const ItemSelectionPage = () => {
                   label={"Expiry"}
                   onChangeText={handleExpiryDateChange}
                   value={expiry}
-                  width={150}
+                  width={140}
                   maxLength={7}
                   keyboard={"numeric"}
                 />
@@ -464,6 +468,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.5)",
+   marginHorizontal:2
+    
   },
   modalContent: {
     backgroundColor: "white",

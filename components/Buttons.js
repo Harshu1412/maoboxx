@@ -6,7 +6,7 @@ const Buttons = (props) => {
   return (
   <View>
     <View >
-      <TouchableOpacity style={{width:340,height:49 , backgroundColor:"black",borderRadius:10, justifyContent:"center",alignItems:"center"}} onPress={()=>navigation.navigate(props.press)}>
+      <TouchableOpacity style={{width:"100%",height:49 , backgroundColor:"black",borderRadius:10, justifyContent:"center",alignItems:"center"}} onPress={()=>navigation.navigate(props.press)}>
          <Text style={{color:"white"}}>{props.Name}</Text>
       </TouchableOpacity>
       </View>

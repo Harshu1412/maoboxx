@@ -4,7 +4,7 @@ import Mapbox from "@rnmapbox/maps";
 import MapboxPlacesAutocomplete from "react-native-mapbox-places-autocomplete";
 import { Entypo } from "@expo/vector-icons";
 
-
+Mapbox.setWellKnownTileServer('Mapbox')
 Mapbox.setAccessToken(
     "pk.eyJ1IjoiaGFyc2h1MTQxMiIsImEiOiJjbGdtMWN1MHMwMWMxM3FwcGZ3a3p2ajliIn0.sAqxecqbNtP8fVkl_9m9xQ"
   );

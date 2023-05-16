@@ -8,12 +8,11 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-community/checkbox": "^0.5.15",
-    "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
     "@rnmapbox/maps": "^10.0.2",
     "expo": "~48.0.11",
+    "expo-constants": "~14.2.1",
     "expo-location": "^15.1.1",
     "expo-splash-screen": "~0.18.1",
     "expo-status-bar": "~1.4.4",

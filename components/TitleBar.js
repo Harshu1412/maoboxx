@@ -7,16 +7,16 @@ const Titlebar = (props) => {
   return (
     <View
       style={{
-        height: 52,
-        marginTop: 10,
+        height: 50,
+        marginTop: 2,
         backgroundColor: "white",
         borderRadius: 8,
-        width: "92%",
+        width: "100%",
         flexDirection: "row",
         alignItems: "center",
         alignSelf: "center",
         justifyContent: "center",
-        marginBottom: 20,
+       marginBottom:5,
         shadowColor: "#000",
         shadowOffset: {
           width: 0,

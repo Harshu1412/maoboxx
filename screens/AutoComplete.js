@@ -9,7 +9,7 @@ import { getFirestore } from "firebase/firestore";
 import { db } from "../firebase";
 
 export default function AutoComplete({ navigation }) {
-  // const db=getFirestore();
+  
   const [origin, setOrigin] = useState("");
   return (
     <View
@@ -35,7 +35,7 @@ export default function AutoComplete({ navigation }) {
               "i1PWvfV6SNq9JSb5kgEd",
               "location"
             );
-            console.log(dfs);
+            console.log("--------------------",dfs);
             const date = new Date();
             console.log(date)
             addDoc(
